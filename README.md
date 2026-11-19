@@ -1,8 +1,8 @@
 # AI English Tutor Academy
 
-เริ่มอ่าน [คู่มือ Architecture และ Phase 01](docs/phase-01.md) แล้วอ่าน [Phase 02: Tailwind และ shadcn/ui](docs/phase-02.md)
+เริ่มอ่าน [คู่มือ Architecture และ Phase 01](docs/phase-01.md), [Phase 02: Tailwind และ shadcn/ui](docs/phase-02.md), [Phase 03: PostgreSQL และ Prisma](docs/phase-03.md) และ [Phase 04: Google OAuth](docs/phase-04.md)
 
-สถานะ: Phase 02 มี Tailwind CSS, shadcn/ui แบบ manual, Lucide และโหมดสว่าง/มืด ยังไม่มีการเชื่อมต่อ AI, Database หรือ Google OAuth
+สถานะ: Phase 04 มี Google OAuth v4, database sessions, protected pages/API และ onboarding แล้ว การเข้าสู่ระบบจริงต้องตั้งค่า Google Cloud และ PostgreSQL ตามคู่มือก่อน
 
 ```powershell
 npm ci
