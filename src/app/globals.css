@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: 72 24% 96%;
+    --foreground: 161 35% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 161 35% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 161 35% 17%;
+    --primary: 161 41% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 90 23% 91%;
+    --secondary-foreground: 161 35% 24%;
+    --muted: 90 16% 92%;
+    --muted-foreground: 150 10% 38%;
+    --accent: 90 23% 89%;
+    --accent-foreground: 161 35% 17%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 100 15% 85%;
+    --input: 100 15% 78%;
+    --ring: 161 41% 35%;
+    --radius: 0.875rem;
+  }
+  .dark {
+    color-scheme: dark;
+    --background: 160 20% 9%;
+    --foreground: 80 20% 93%;
+    --card: 160 18% 12%;
+    --card-foreground: 80 20% 93%;
+    --popover: 160 18% 12%;
+    --popover-foreground: 80 20% 93%;
+    --primary: 145 36% 70%;
+    --primary-foreground: 160 30% 12%;
+    --secondary: 160 15% 20%;
+    --secondary-foreground: 80 20% 93%;
+    --muted: 160 15% 18%;
+    --muted-foreground: 100 10% 70%;
+    --accent: 160 15% 23%;
+    --accent-foreground: 80 20% 93%;
+    --destructive: 0 63% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 14% 25%;
+    --input: 160 14% 32%;
+    --ring: 145 36% 70%;
+  }
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground antialiased; font-family: Arial, Tahoma, sans-serif; line-height: 1.7; }
+  a:focus-visible { @apply rounded-sm outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
