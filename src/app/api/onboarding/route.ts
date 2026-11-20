@@ -16,7 +16,13 @@ const onboardingSchema = z.object({
 });
 
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
+  let session;
+  try {
+    session = await getServerSession(authOptions);
+  } catch (error) {
+    console.error("Auth configuration is unavailable", error instanceof Error ? error.message : "unknown");
+    return NextResponse.json({ error: "ระบบเข้าสู่ระบบยังตั้งค่าไม่ครบ" }, { status: 503 });
+  }
   if (!session?.user?.id) {
     return NextResponse.json({ error: "กรุณาเข้าสู่ระบบก่อน" }, { status: 401 });
   }

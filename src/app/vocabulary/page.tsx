@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { requireSession } from "@/lib/auth-guard";
+import { prisma } from "@/lib/prisma";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const dynamic = "force-dynamic";
+export default async function VocabularyPage() { const session = await requireSession("/vocabulary"); const items = await prisma.userVocabulary.findMany({ where: { userId: session.user.id }, include: { vocabulary: true }, orderBy: { dueAt: "asc" }, take: 50 }); return <main className="mx-auto max-w-5xl px-5 py-8 sm:px-8"><header className="mb-8 flex items-center justify-between"><Link className="text-sm font-bold" href="/dashboard">← Dashboard</Link><Badge variant="secondary">{items.length} คำ</Badge></header><h1 className="text-3xl font-bold">Vocabulary Academy</h1><p className="mt-2 text-muted-foreground">คำศัพท์ที่บันทึกไว้และรอทบทวน</p>{items.length === 0 ? <Card className="mt-8"><CardContent className="p-6 text-sm leading-7 text-muted-foreground">ยังไม่มีคำศัพท์ในคลัง เปิดบทเรียน Vocabulary แล้วบันทึกคำศัพท์จากบทเรียนในขั้นถัดไป</CardContent></Card> : <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{items.map((item) => <Card key={item.id}><CardHeader><CardTitle>{item.vocabulary.word}</CardTitle><p className="text-sm text-muted-foreground">{item.vocabulary.partOfSpeech ?? "word"} · {item.vocabulary.ipa ?? "IPA ยังไม่ระบุ"}</p></CardHeader><CardContent className="space-y-2 text-sm leading-7"><p>{item.vocabulary.translationTh}</p><p className="text-muted-foreground">{item.vocabulary.exampleSentence}</p><Badge variant="outline">{item.status}</Badge></CardContent></Card>)}</div>}</main>; }

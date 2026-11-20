@@ -1,8 +1,8 @@
 # AI English Tutor Academy
 
-เริ่มอ่าน [คู่มือ Architecture และ Phase 01](docs/phase-01.md), [Phase 02: Tailwind และ shadcn/ui](docs/phase-02.md), [Phase 03: PostgreSQL และ Prisma](docs/phase-03.md) และ [Phase 04: Google OAuth](docs/phase-04.md)
+เริ่มอ่าน [คู่มือ Architecture และ Phase 01](docs/phase-01.md), [Phase 02: Tailwind และ shadcn/ui](docs/phase-02.md), [Phase 03: PostgreSQL และ Prisma](docs/phase-03.md), [Phase 04: Google OAuth](docs/phase-04.md), [Phase 05: Groq AI Chat](docs/phase-05.md), [Phases 06–14](docs/phases-06-14.md) และ [Deploy Vercel + Storage](docs/deploy-vercel.md)
 
-สถานะ: Phase 04 มี Google OAuth v4, database sessions, protected pages/API และ onboarding แล้ว การเข้าสู่ระบบจริงต้องตั้งค่า Google Cloud และ PostgreSQL ตามคู่มือก่อน
+สถานะ: MVP ครบ Phase 01–14 แล้ว มี authentication, database, AI text/voice, learning academies, exams, progress, tests, security baseline, Vercel Blob และ deployment config
 
 ```powershell
 npm ci
